@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWatchWatch", "MyWatchWatch\MyWatchWatch.csproj", "{CDAEBE3D-6EF4-4567-A18F-5A057AC9F05A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDAEBE3D-6EF4-4567-A18F-5A057AC9F05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAEBE3D-6EF4-4567-A18F-5A057AC9F05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAEBE3D-6EF4-4567-A18F-5A057AC9F05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAEBE3D-6EF4-4567-A18F-5A057AC9F05A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {806A155A-6533-4088-AEBE-C0559133A2F3}
+	EndGlobalSection
+EndGlobal

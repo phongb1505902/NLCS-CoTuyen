@@ -1,0 +1,95 @@
+﻿@using MyWatchWatch.Models
+@model List<ItemGioHang>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            @if (Model == null || Model.Count == 0)
+            {
+                <p class="text-info text-center">
+                    Giỏ hàng của bạn rỗng!
+                </p>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Qty</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (ItemGioHang item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center"><img src="~/MyImg/Products/@item.ImgPro.FirstOrDefault().Img_Product" width="50" height="50" /></td>
+                                            @*<td><a target="_blank" href="@Url.Action("ChiTiet", "SanPham", new { id = item.SanPhamID })"> @item.TenSanPham </a> </td>*@
+                                            <td>@item.ProductName</td>
+                                            <td>
+                                                <form action="@Url.Action("SuaSoLuong")" method="get">
+                                                    <input type="hidden" name="ProductId" value="@item.ProductId" />
+                                                    <input type="number" min="1" step="1" name="soluongmoi" value="@item.ProductQtyUser" />
+                                                    <button type="submit" class="btn btn-primary btn-sm"> Update </button>
+                                                </form>
+                                            </td>
+                                            <td> @item.ProductSold.ToString("#,##0").Replace(',', '.') $ </td>
+                                            <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') $ </td>
+
+                                            <td> <a href="@Url.Action("XoaKhoiGio", new { ProductId = item.ProductId })" onclick="return confirm('Are you sure Delete?');" class="btn btn-danger btn-sm">Delete</a> </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-right">Total:</td>
+                                        <td> @Model.Sum(m => m.ProductQtyUser) </td>
+                                        <td class="text-right">Price:</td>
+                                        <td>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') $ </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-12">
+
+                    @using (Html.BeginForm("ConfirmCheckOut_Post", "Cart"))
+                    {
+
+                        if (@Session["username"] == null)
+                        {
+
+                            <p class="text-center">
+                                <a class="btn btn-danger" href="@Url.Action("LoginCart", "LoginUser")">Check Out</a>
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="text-center">
+                                <a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut", "Cart")">Check Out</a>
+                            </p>
+                        }
+                        <p class="text-center">
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
+                        </p>
+                        
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+     

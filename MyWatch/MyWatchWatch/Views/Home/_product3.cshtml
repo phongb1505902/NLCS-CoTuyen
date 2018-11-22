@@ -1,0 +1,54 @@
+﻿
+@using MyWatchWatch.Models
+@model IEnumerable<Product>
+
+@foreach (var item in Model.Take(4))
+{
+    <div class="col-md-3 product-left">
+        <div class="product-main simpleCart_shelfItem">
+            <a href="@Url.Action("Details", "Home", new { id = item.ProductId })" class=""><img class="img-responsive zoom-img" src="~/MyImg/Products/@item.ImgProducts.FirstOrDefault().Img_Product" alt="" /></a>
+            @*<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="~/Library/User/images/p-1.png" alt="" /></a>*@
+            <div class="img-overlay">
+            </div>
+            <div class="product-bottom text-center">
+                <h3>@item.ProductName</h3>
+                <p>@item.ProductDetails</p>
+
+                <h4><a class="" href="#"><i></i></a> <span class=" item_price"> @Html.DisplayFor(modelItem => item.ProductSold)</span></h4>
+                @if (item.PromotionId == null)
+                {
+                }
+                else
+                {
+                    var motion = item.Promotion.PromotionDiscount;
+                    if (motion == 0 || motion == null)
+                    {
+
+                    }
+                    else
+                    {
+                        var its = item.ProductSold - (item.ProductSold * item.Promotion.PromotionDiscount) / 100;
+                        <h4><a class="" href="#"><i></i></a> <span class=" item_price">@string.Format("{0:#,##0 $}", its)</span></h4>
+                    }
+                }
+            </div>
+            @if (item.PromotionId == null)
+            {
+            }
+            else
+            {
+                var motion = item.Promotion.PromotionDiscount;
+                if (motion == 0 || motion == null)
+                {
+
+                }
+                else
+                {
+                    <div class="srch">
+                        <span>@item.Promotion.PromotionDiscount%</span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

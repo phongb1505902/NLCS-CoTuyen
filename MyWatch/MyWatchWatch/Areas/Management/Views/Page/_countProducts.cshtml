@@ -1,0 +1,11 @@
+﻿@using MyWatchWatch.Models;
+@{ 
+    IEnumerable<Product> countProducts = ViewBag.countProducts as IEnumerable<Product>;
+}
+<div class="wrapper count-title d-flex">
+    <div class="icon"><i class="fa fa-cubes"></i></div>
+    <div class="name">
+        <strong class="text-uppercase"><a href="@Url.Action("Index","Products")">Products</a></strong>
+        <div class="count-number">@ViewBag.countProducts</div>
+    </div>
+</div>

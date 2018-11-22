@@ -1,0 +1,43 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Management/Views/Shared/_LoginLayout.cshtml";
+}
+@model MyWatchWatch.Areas.Management.Models.LoginViewModel
+<div class="page login-page">
+    <div class="container">
+        <div class="form-outer text-center d-flex align-items-center">
+            <div class="form-inner">
+                <div class="logo text-uppercase"><span>CT239</span><strong class="text-primary">NLCS</strong></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "text-left form-validate" }))
+                {
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    @Html.AntiForgeryToken()
+                    <div class="form-group-material">
+                        @Html.TextBoxFor(model => model.EmployeeCode, new { @class = "input-material", @autofocus = "autofocus", @placeholder = "Username" })
+
+
+                    </div>
+                    <div class="form-group-material">
+                        @Html.PasswordFor(model => model.EmployeePass, new { @class = "input-material", @placeholder = "Password" })
+
+                    </div>
+                    <div class="form-group-material">
+                        @Html.Captcha(5)
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                        <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                    </div>
+
+                }
+            </div>
+            <div class="copyrights text-center">
+                <p>Design by <a href="https://github.com/dangtuanhuy" class="external">Teams 3</a></p>
+
+            </div>
+        </div>
+
+    </div>
+</div>

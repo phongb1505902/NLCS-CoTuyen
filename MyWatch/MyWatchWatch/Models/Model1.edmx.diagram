@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a92b761aa78c4de4bfc578203cec3e79" Name="Diagram1">
+        <EntityTypeShape EntityType="MyWatchWatchModel.About" Width="1.5" PointX="6" PointY="28.75" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Branch" Width="1.5" PointX="6" PointY="26.125" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Category" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Customer" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Delivery" Width="1.5" PointX="6" PointY="23" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Employee" Width="1.5" PointX="3.75" PointY="23.25" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.ImgNew" Width="1.5" PointX="8.25" PointY="20" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.ImgProduct" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.News" Width="1.5" PointX="6" PointY="19.875" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Order" Width="1.5" PointX="3" PointY="15.625" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.PaymentMethod" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Product" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Promotion" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Role" Width="1.5" PointX="1.5" PointY="21.375" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Slider" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.Supplier" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="MyWatchWatchModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.75" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_About_Employee" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Branch_Employee" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Products_Category" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Customer_Role" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Order_Customer" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Delivery_Employee" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Employee_Role" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_News_Employee" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_ImgNews_News" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_ImgProducts_Products" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Order_PaymentMethod" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_OrderDetails_Order" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_OrderDetails_Products" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Products_Promotion" />
+        <AssociationConnector Association="MyWatchWatchModel.FK_Products_Supplier" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

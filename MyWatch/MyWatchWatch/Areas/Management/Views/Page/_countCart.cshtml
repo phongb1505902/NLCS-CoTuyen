@@ -1,0 +1,11 @@
+﻿@using MyWatchWatch.Models;
+@{
+    IQueryable<Order> countCarts = ViewBag.countCarts as IQueryable<Order>;
+}
+<div class="wrapper count-title d-flex">
+    <div class="icon"><i class="fa fa-cart-plus"></i></div>
+    <div class="name">
+        <strong class="text-uppercase">Orders</strong>
+        <div class="count-number">@ViewBag.countCarts</div>
+    </div>
+</div>

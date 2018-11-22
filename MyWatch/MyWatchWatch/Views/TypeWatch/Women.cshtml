@@ -1,0 +1,64 @@
+﻿@using MyWatchWatch.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.Title = "Women";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container">
+    <div class="product-top">
+        <h2 style="text-align:center; color:blue;">Watch Women</h2>
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-group row">
+                <div class="col-md-9">
+
+                </div>
+                <div class="col-md-3">Find by Name or by Category:</div>
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", null, new { @class = "form-control", data_toggle = "tooltip" })
+                        <span class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                            <input type="submit" value="Search" />
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        }
+        <div class="product-one">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 product-left">
+                    <div class="product-main simpleCart_shelfItem">
+                        <a href="@Url.Action("Details", "Home", new { id = item.ProductId })" class=""><img class="img-responsive zoom-img" src="~/MyImg/Products/@item.ImgProducts.FirstOrDefault().Img_Product" alt="" /></a>
+                        @*<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="~/Library/User/images/p-1.png" alt="" /></a>*@
+                        <div class="img-overlay">
+                        </div>
+                        <div class="product-bottom text-center">
+                            <h3>@item.ProductName</h3>
+                            <p>@item.ProductDetails</p>
+                            <h4><a class="" href="#"><i></i></a> <span class=" item_price">$ @Html.DisplayFor(modelItem => item.ProductSold)</span></h4>
+                        </div>
+                        <div class="srch">
+                            <span>@item.Promotion.PromotionDiscount%</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="content-pagenation text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Women",
+     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+

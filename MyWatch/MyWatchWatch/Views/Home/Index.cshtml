@@ -1,0 +1,70 @@
+﻿@using MyWatchWatch.Models
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+@{ 
+    IEnumerable<Product> ListProduct1 = ViewBag.ListProduct1 as IEnumerable<Product>;
+    IEnumerable<Product> ListProduct2 = ViewBag.ListProduct2 as IEnumerable<Product>;
+    IEnumerable<Product> ListProduct3 = ViewBag.ListProduct3 as IEnumerable<Product>;
+}
+
+<div class="bnr" id="home">
+    <div id="top" class="callbacks_container">
+        <ul class="rslides" id="slider4">
+            @Html.Partial("~/Views/Home/_slider.cshtml")
+        </ul>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!--banner-ends-->
+<!--Slider-Starts-Here-->
+<!--End-slider-script-->
+<!--about-starts-->
+@Html.Partial("~/Views/Home/_partiview1.cshtml")
+<!--about-end-->
+<!--product-starts-->
+<div class="product">
+    <div class="container">
+        <div class="product-top">
+            <h2 style="text-align:center; color:blue;">Styte Men Best Seller</h2>
+            <div class="product-one">
+                @Html.Partial("~/Views/Home/_product1.cshtml", ListProduct1)
+                <div class="clearfix"></div>
+            </div>
+            <h2 style="text-align:center; color:blue;">Styte Women Best Seller</h2>
+            <div class="product-one">
+                @Html.Partial("~/Views/Home/_product2.cshtml", ListProduct2)
+                <div class="clearfix"></div>
+            </div>
+            <h2 style="text-align:center; color:blue;">Styte Kids Best Seller</h2>
+            <div class="product-one">
+                @Html.Partial("~/Views/Home/_product3.cshtml", ListProduct3)
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Library/User/js/responsiveslides.min.js"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider4").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+<!--product-end-->
+<!--information-starts-->

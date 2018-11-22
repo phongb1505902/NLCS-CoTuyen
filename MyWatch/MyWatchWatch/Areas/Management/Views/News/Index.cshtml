@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MyWatchWatch.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard-header section-padding">
+    <div class="container">
+        <h2 class="text-center">News 0f Watch</h2>
+
+        <p>
+            <a href="@Url.Action("Create", "News")" class="btn btn-info">
+                Create
+            </a>
+        </p>
+        @Html.Raw(TempData["msg1"])
+        <table class="table table-striped table-bordered table-responsive" id="tablefillset">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NewTitles)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NewsDetails)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NewsDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td class="col-3 text-center">
+                        @Html.DisplayFor(modelItem => item.NewTitles)
+                    </td>
+
+                    <td class="col-4 text-center">
+                        @Html.DisplayFor(modelItem => item.NewsDetails)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NewsDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+                    </td>
+
+                    <td class="col-4 text-center">
+                        <a href="@Url.Action("Edit", "News", new { id = item.NewsId })" class="btn btn-default">
+                            <i class="fa fa-plus-square"></i>
+                            <span>
+
+                            </span>
+                        </a>
+                        |
+                        <a href="@Url.Action("Delete", "News", new { id = item.NewsId})" class="btn btn-default">
+                            <i class="fa fa-trash"></i>
+                            <span>
+
+                            </span>
+                        </a>
+                        |
+                        <a href="@Url.Action("UploadNews", "News", new { id = item.NewsId })" class="btn btn-default">
+                            <i class="fa fa-picture-o"></i>
+                            <span>
+
+                            </span>
+                        </a>
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

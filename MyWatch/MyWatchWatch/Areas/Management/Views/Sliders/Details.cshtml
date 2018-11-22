@@ -1,0 +1,51 @@
+﻿@model MyWatchWatch.Models.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderImg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderData)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SliderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

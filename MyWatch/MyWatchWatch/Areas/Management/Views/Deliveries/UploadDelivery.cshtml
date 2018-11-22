@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "UploadDelivery";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="dashboard-header section-padding">
+    <div class="container">
+        <br />
+        <h2 class="text-center">Delivery</h2>
+        <div><a href="@Url.Action("Index","Deliveries")" class="btn btn-info">Management</a></div>
+        @using (Html.BeginForm("UploadDelivery", "Deliveries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-inline text-center">
+                <!-- File Upload -->
+                <div class="form-group">
+
+                    <input type="file" name="file" />
+                    <br />
+                    <br />
+                    <input type="submit" value="Upload" class="btn btn-primary" />
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+</section>

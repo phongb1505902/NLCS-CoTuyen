@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MyWatchWatch.Models.Promotion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard-header section-padding">
+    <div class="container">
+        <h2 class="text-center">Suppliers 0f Watch</h2>
+
+        <p>
+            <a href="@Url.Action("Create", "Suppliers")" class="btn btn-info">
+                Create
+            </a>
+        </p>
+        @Html.Raw(TempData["msg1"])
+        <table class="table table-striped table-bordered table-responsive" id="tablefillset">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.PromotionName)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.PromotionDetails)
+                    </th>
+                    <th class="text-center">
+
+                        @Html.DisplayNameFor(model => model.PromotionDiscount)
+                    </th>
+
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.PromotionStatus)
+
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.PromotionOpen)
+                    </th>
+                    <th class="text-center">
+                  
+                        @Html.DisplayNameFor(model => model.PromotionClose)
+                    </th>
+                    <th class="text-center">Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionDetails)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionDiscount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionOpen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PromotionClose)
+                        </td>
+                        <td class="col-3 text-center">
+
+                            <a href="@Url.Action("Edit", "Promotions", new { id = item.PromotionId })" class="btn btn-default">
+                                <i class="fa fa-plus-square"></i>
+                                <span>
+
+                                </span>
+                            </a>
+                            |
+                            <a href="@Url.Action("Delete", "Promotions", new { id = item.PromotionId })" class="btn btn-default">
+                                <i class="fa fa-trash"></i>
+                                <span>
+
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,64 @@
+﻿@model MyWatchWatch.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_PrintForm.cshtml";
+}
+
+<h2>Details of Order</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerFullName)
+        </dd>
+
+
+    </dl>
+</div>
+

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MyWatchWatch.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard-header section-padding">
+    <div class="container">
+        <h2 class="text-center"> Orders</h2>
+
+
+        <table class="table table-striped table-bordered table-responsive" id="tablefillset">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequiredDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderPhone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PaymentOnline)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Order_Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Customer.CustomerFullName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequiredDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentOnline)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Order_Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.CustomerFullName)
+                        </td>
+                        <td>
+
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                            @Html.ActionLink("Print Details View To PDF", "PrintPartialViewToPdf", new { id = item.OrderId })
+                        </td>
+                    </tr>
+                }
+                </tbody>
+        </table>
+    </div>
+</section>

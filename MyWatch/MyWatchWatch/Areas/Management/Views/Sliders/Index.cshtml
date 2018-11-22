@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MyWatchWatch.Models.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderComment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderData)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SliderImg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SliderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SliderComment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SliderData)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SliderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SliderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SliderId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model MyWatchWatch.Models.Branch
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard-header section-padding">
+    <div class="container">
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+         
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.BranchName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BranchName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BranchDetails)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BranchDetails)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Employee.EmployeePass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Employee.EmployeePass)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a href="@Url.Action("Index","Branches")" class="btn btn-default">Management</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
