@@ -83,13 +83,13 @@
                         }
                         <p class="text-center">
                             <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
+                            <a class="add-cart item_add" href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name=GioHang&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_detail=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.Sum(n => n.ThanhTien),Model.Sum(n =>n.ThanhTien))'>Online Pay</a>
                         </p>
                         
-                        }
-                    </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-     
