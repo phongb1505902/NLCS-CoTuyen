@@ -264,6 +264,7 @@
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderMetaData.cs" />
     <Compile Include="Models\PaymentMethod.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

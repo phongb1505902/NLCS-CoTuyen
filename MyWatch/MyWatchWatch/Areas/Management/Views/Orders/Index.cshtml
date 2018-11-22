@@ -14,23 +14,21 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.OrderDate)
+                       Order Date
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.RequiredDate)
+                       Require Date
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.OrderAddress)
+                       Addresss
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.OrderPhone)
+                      Phone
                     </th>
        
+                   
                     <th>
-                        @Html.DisplayNameFor(model => model.Order_Status)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Customer.CustomerFullName)
+                       Full Name
                     </th>
                     <th></th>
                 </tr>
@@ -39,26 +37,24 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>
+                        <td class="col-md-2">
                             @Html.DisplayFor(modelItem => item.OrderDate)
                         </td>
-                        <td>
+                        <td class="col-md-2">
                             @Html.DisplayFor(modelItem => item.RequiredDate)
                         </td>
-                        <td>
+                        <td class="col-md-3">
                             @Html.DisplayFor(modelItem => item.OrderAddress)
                         </td>
-                        <td>
+                        <td class="col-md-3">
                             @Html.DisplayFor(modelItem => item.OrderPhone)
                         </td>
                   
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Order_Status)
-                        </td>
-                        <td>
+                
+                        <td class="col-md-3">
                             @Html.DisplayFor(modelItem => item.Customer.CustomerFullName)
                         </td>
-                        <td>
+                        <td class="col-md-3">
                             <a href="@Url.Action("PrintOrder", "Orders", new { id = item.OrderId })" class="btn btn-primary">
                                 <i class="fa fa-print"></i>
                                 <span>
