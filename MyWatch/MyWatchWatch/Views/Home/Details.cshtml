@@ -34,7 +34,6 @@
                                     </li>
                                 }
                             </ul>
-
                         </div>
                         <!-- FlexSlider -->
                         <script src="~/Library/User/js/imagezoom.js"></script>
@@ -199,17 +198,17 @@
                         <h4>Catogories</h4>
                         <div class="row1 scroll-pane">
                             <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>All Accessories</label>
+                                <a href="@Url.Action("Index", "Home")"class="checkbox">Home</a>
                             </div>
                             <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women Watches</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kids Watches</label>
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Men Watches</label>
+                                <a href="@Url.Action("Men", "TypeWatch")" class="checkbox">Men Watches</a>
+                                <a href="@Url.Action("Women", "TypeWatch")"class="checkbox">Womens Watches</a>
+                                <a href="@Url.Action("Kids", "TypeWatch")"class="checkbox">Kids Watches</a>
                             </div>
                         </div>
                     </section>
                     <section class="sky-form">
-                        <h4>Brand</h4>
+                        <h4>Supplier</h4>
                         <div class="row1 row2 scroll-pane">
                             <div class="col col-4">
                                 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>kurtas</label>
