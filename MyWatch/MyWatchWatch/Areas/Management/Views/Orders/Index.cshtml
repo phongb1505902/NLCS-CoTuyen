@@ -25,9 +25,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.OrderPhone)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PaymentOnline)
-                    </th>
+       
                     <th>
                         @Html.DisplayNameFor(model => model.Order_Status)
                     </th>
@@ -53,9 +51,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.OrderPhone)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PaymentOnline)
-                        </td>
+                  
                         <td>
                             @Html.DisplayFor(modelItem => item.Order_Status)
                         </td>
@@ -63,9 +59,12 @@
                             @Html.DisplayFor(modelItem => item.Customer.CustomerFullName)
                         </td>
                         <td>
+                            <a href="@Url.Action("PrintOrder", "Orders", new { id = item.OrderId })" class="btn btn-primary">
+                                <i class="fa fa-print"></i>
+                                <span>
 
-                            @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
-                            @Html.ActionLink("Print Details View To PDF", "PrintPartialViewToPdf", new { id = item.OrderId })
+                                </span>
+                            </a>
                         </td>
                     </tr>
                 }

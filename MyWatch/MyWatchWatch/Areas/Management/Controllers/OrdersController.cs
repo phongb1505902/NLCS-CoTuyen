@@ -50,7 +50,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,CustomerCode,OrderDate,RequiredDate,OrderAddress,OrderPhone,PaymentMethod,PaymentOnline,Order_Status")] Order order)
+        public ActionResult Create([Bind(Include = "OrderId,CustomerCode,OrderDate,RequiredDate,OrderAddress,OrderPhone,PaymentMethod,Order_Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,CustomerCode,OrderDate,RequiredDate,OrderAddress,OrderPhone,PaymentMethod,PaymentOnline,Order_Status")] Order order)
+        public ActionResult Edit([Bind(Include = "OrderId,CustomerCode,OrderDate,RequiredDate,OrderAddress,OrderPhone,PaymentMethod,Order_Status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -129,7 +129,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
             var report = new ActionAsPdf("Index");
             return report;
         }
-        public ActionResult PrintPartialViewToPdf(int id)
+        public ActionResult PrintOrder(int id)
         {
            
                 Order order = db.Orders.FirstOrDefault(p => p.OrderId == id);
