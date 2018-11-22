@@ -7,10 +7,10 @@
 
 <section class="dashboard-header section-padding">
     <div class="container">
-        <h2 class="text-center">Suppliers 0f Watch</h2>
+        <h2 class="text-center">Promiton 0f Watch</h2>
 
         <p>
-            <a href="@Url.Action("Create", "Suppliers")" class="btn btn-info">
+            <a href="@Url.Action("Create", "Promotions")" class="btn btn-info">
                 Create
             </a>
         </p>
@@ -29,10 +29,7 @@
                         @Html.DisplayNameFor(model => model.PromotionDiscount)
                     </th>
 
-                    <th class="text-center">
-                        @Html.DisplayNameFor(model => model.PromotionStatus)
-
-                    </th>
+                
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.PromotionOpen)
                     </th>
@@ -47,25 +44,23 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>
+                        <td >
                             @Html.DisplayFor(modelItem => item.PromotionName)
                         </td>
-                        <td>
+                        <td class="col-md-6">
                             @Html.DisplayFor(modelItem => item.PromotionDetails)
                         </td>
-                        <td>
+                        <td class="col-md-1">
                             @Html.DisplayFor(modelItem => item.PromotionDiscount)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PromotionStatus)
-                        </td>
-                        <td>
+                      
+                        <td class="col-md-1">
                             @Html.DisplayFor(modelItem => item.PromotionOpen)
                         </td>
-                        <td>
+                        <td class="col-md-1">
                             @Html.DisplayFor(modelItem => item.PromotionClose)
                         </td>
-                        <td class="col-3 text-center">
+                        <td class="col-md-3 text-center">
 
                             <a href="@Url.Action("Edit", "Promotions", new { id = item.PromotionId })" class="btn btn-default">
                                 <i class="fa fa-plus-square"></i>

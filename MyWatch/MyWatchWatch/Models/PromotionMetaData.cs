@@ -24,7 +24,9 @@ namespace MyWatchWatch.Models
             public string PromotionDetails { get; set; }
 
             [Display(Name = "Discount")]
-            [Required(ErrorMessage = "Record can not null")]
+            [Required(ErrorMessage = "Discount can not null")]
+
+            [Range(1, 99, ErrorMessage = "Limit 1-99")]
             public Nullable<int> PromotionDiscount { get; set; }
 
             [Display(Name = "Status")]
@@ -33,12 +35,15 @@ namespace MyWatchWatch.Models
 
             [Display(Name = "Start")]
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-            [DataType(DataType.DateTime, ErrorMessage = "Input is data type")]
+            [DataType(DataType.Date, ErrorMessage = "Input Data is not valid")]
+            [Required(ErrorMessage = "Can not null")]
             public Nullable<System.DateTime> PromotionOpen { get; set; }
 
             [Display(Name = "End")]
+
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-            [DataType(DataType.DateTime, ErrorMessage = "Input is data type")]
+            [DataType(DataType.Date, ErrorMessage = "Input Data is not valid")]
+            [Required(ErrorMessage = "Can not null")]
             public Nullable<System.DateTime> PromotionClose { get; set; }
         }
     }

@@ -39,10 +39,8 @@
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.HomePage)
                     </th>
-                    <th class="text-center">
-                        @Html.DisplayNameFor(model => model.Status_Supplier)
-                    </th>
-                    <th>Method</th>
+                  
+                    <th class="text-center">Method</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,9 +68,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.HomePage)
                         </td>
-                        <td class="text-center">
-                            @Html.DisplayFor(modelItem => item.Status_Supplier)
-                        </td>
+                   
                         <td class="col-3 text-center">
                             <a href="@Url.Action("Edit", "Suppliers", new { id = item.SupplierId })" class="btn btn-default">
                                 <i class="fa fa-plus-square"></i>

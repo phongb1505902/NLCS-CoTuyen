@@ -33,6 +33,8 @@ namespace MyWatchWatch.Models
 
             [Display(Name = "Quantity")]
             [Required(ErrorMessage = "Record can not null")]
+            [RegularExpression("^[0-9]*$", ErrorMessage = "Qty is positive numbers")]
+
             public Nullable<int> ProductQty { get; set; }
 
             [Display(Name = "Price")]

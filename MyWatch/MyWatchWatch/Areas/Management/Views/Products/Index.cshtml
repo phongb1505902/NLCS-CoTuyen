@@ -27,14 +27,14 @@
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.ProductStatus)
                     </th>
-                    
+
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.ProductQty)
                     </th>
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.ProductSold)
                     </th>
-                   
+
                     <th class="text-center">
                         @Html.DisplayNameFor(model => model.Category.CategoryName)
                     </th>
@@ -49,23 +49,31 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="col-3">
+                        <td class="col-md-1">
                             @Html.DisplayFor(modelItem => item.ProductName)
                         </td>
-                        <td>
+                        <td class="col-md-3">
                             @Html.DisplayFor(modelItem => item.ProductDetails)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductStatus)
-                        </td>
-                        
+                        @if (item.ProductStatus == true)
+                        {
+                            <td class="text-center">
+                                Yes
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-center">
+                                No
+                            </td>
+                        }
                         <td>
                             @Html.DisplayFor(modelItem => item.ProductQty)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProductSold)
                         </td>
-                       
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Category.CategoryName)
                         </td>

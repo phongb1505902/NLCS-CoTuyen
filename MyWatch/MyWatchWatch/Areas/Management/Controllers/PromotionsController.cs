@@ -49,26 +49,32 @@ namespace MyWatchWatch.Areas.Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PromotionId,PromotionName,PromotionDetails,PromotionDiscount,PromotionStatus,PromotionOpen,PromotionClose")] Promotion promotion)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Promotions.Add(promotion);
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException dbEx)
-                {
-                    foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                        }
-                    }
-                }
-                return RedirectToAction("Index");
-            }
 
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Can not add DB");
+                return View();
+            }
+            if (!String.IsNullOrEmpty(promotion.PromotionName))
+            {
+               
+                    DateTime dt1 = DateTime.Parse(promotion.PromotionOpen.ToString());
+                    DateTime dt2 = DateTime.Parse(promotion.PromotionClose.ToString());
+                    if (dt1.Date > dt2.Date)
+                    {
+                        ModelState.AddModelError("", "End time must be greater than start time");
+
+                    }
+                    else
+                    {
+                        promotion.PromotionStatus = true;
+                        db.Promotions.Add(promotion);
+                        db.SaveChanges();
+
+                    }
+               
+
+            }
             return View(promotion);
         }
 
@@ -99,6 +105,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
                 try
                 {
                     db.Entry(promotion).State = EntityState.Modified;
+                    promotion.PromotionStatus = true;
                     db.SaveChanges();
                 }
                 catch (DbEntityValidationException dbEx)

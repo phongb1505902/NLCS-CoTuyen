@@ -51,6 +51,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
                 try
                 {
                     supplier.Create_Supplier = DateTime.Now;
+                    supplier.Status_Supplier = true;
                     db.Suppliers.Add(supplier);
                     db.SaveChanges();
                 }
@@ -98,6 +99,7 @@ namespace MyWatchWatch.Areas.Management.Controllers
                 {
                     db.Entry(supplier).State = EntityState.Modified;
                     supplier.Create_Supplier = DateTime.Now;
+                    supplier.Status_Supplier = true;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
