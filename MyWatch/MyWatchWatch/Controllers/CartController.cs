@@ -130,7 +130,7 @@ namespace MyWatchWatch.Controllers
         }
 
         [HttpPost]
-        public ActionResult ConfirmCheckOut([Bind(Include = "OrderAddress,Phone")] Order order)
+        public ActionResult ConfirmCheckOut([Bind(Include = "OrderAddress,OrderPhone")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -154,12 +154,12 @@ namespace MyWatchWatch.Controllers
 
                 }
                 db.SaveChanges();
-                foreach (var item in lstGH)
-                {
-                    var lst = db.Products.SingleOrDefault(u => u.ProductId == item.ProductId);
-                    lst.ProductQty = lst.ProductQty - item.ProductQtyUser;
-                }
-                db.SaveChanges();
+                //foreach (var item in lstGH)
+                //{
+                //    var lst = db.Products.SingleOrDefault(u => u.ProductId == item.ProductId);
+                //    lst.ProductQty = lst.ProductQty - item.ProductQtyUser;
+                //}
+                //db.SaveChanges();
                 Session["GioHang"] = null;
                 return RedirectToAction("Susses", "Cart");
             }
