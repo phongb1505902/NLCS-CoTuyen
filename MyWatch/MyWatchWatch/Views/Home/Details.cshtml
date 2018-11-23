@@ -100,8 +100,8 @@
                             <a href="@Url.Action("ThemGioHang", "Cart", new { @ProductId = Model.ProductId, strUrl = Request.Url.ToString()})" class="add-cart item_add">ADD TO CART</a>
                             <a class="add-cart item_add" href="@Url.Action("Index", "Home")">Continue shopping</a>
                             <br />
-                            @*<a class="add-cart item_add" href="https://www.baokim.vn/payment/product/version11?business=huysamasun%40gmail.com&id=&order_description=Casio+Black&product_name=Casio+Black&product_price=90000&product_quantity=1&total_amount=90000&url_cancel=&url_detail=http%3A%2F%2Flocalhost%3A51542%2FHome%2FDetails%2F41&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses">Online Pay</a>*@
-                            <a class="add-cart item_add" href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name={2}&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FHome%2FDetails%2F{3}&url_detail=http%3A%2F%2Flocalhost%3A51542%2FHome%2FDetails%2F{4}&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.ProductSold,Model.ProductSold,Model.ProductName,Model.ProductId,Model.ProductId)'>Online Pay</a>
+                            <br/>
+                            <a href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name={2}&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FHome%2FDetails%2F{3}&url_detail=http%3A%2F%2Flocalhost%3A51542%2FHome%2FDetails%2F{4}&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.ProductSold,Model.ProductSold,Model.ProductName,Model.ProductId,Model.ProductId)'><img src="https://www.baokim.vn/cdn/x_developer/module/baokim_btn/paynow-l.png" alt="Thanh toán an toàn với Bảo Kim !" border="0"></a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

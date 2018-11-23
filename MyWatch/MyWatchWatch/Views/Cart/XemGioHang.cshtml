@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <section class="section-paddings">
-                    <div class="container">
+                    <div class="container" style="text-align:right;" >
                         <div class="row">
                             <div class=" col-md-12">
                                 @using (Html.BeginForm("ConfirmCheckOut_Post", "Cart"))
@@ -86,20 +86,25 @@
                                     {
                                         if (@Session["username"] == null)
                                         {
-                                            <a class="add-cart item_add" href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name=GioHang&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_detail=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.Sum(n => n.ThanhTien),Model.Sum(n =>n.ThanhTien))'>Online Pay</a>
+                                            <a href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name=GioHang&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_detail=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.Sum(n => n.ThanhTien),Model.Sum(n =>n.ThanhTien))'><img src="https://www.baokim.vn/cdn/x_developer/module/baokim_btn/paynow-l.png" alt="Thanh toán an toàn với Bảo Kim !" border="0"></a>
+                                            <br />
                                             <a class="btn btn-danger" href="@Url.Action("LoginCart", "LoginUser")">Check Out</a>
                                         }
                                         else
                                         {
-                                            <a class="add-cart item_add" href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name=GioHang&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_detail=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.Sum(n => n.ThanhTien),Model.Sum(n =>n.ThanhTien))'>Online Pay</a>
+                                            <a href='@string.Format("https://www.baokim.vn/payment/product/version11?business=phongb1505902%40student.ctu.edu.vn&id=&order_description=&product_name=GioHang&product_price={0}&product_quantity=1&total_amount={1}&url_cancel=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_detail=http%3A%2F%2Flocalhost%3A51542%2FCart%2FXemGioHang&url_success=http%3A%2F%2Flocalhost%3A51542%2FCart%2FSusses",Model.Sum(n => n.ThanhTien),Model.Sum(n =>n.ThanhTien))'><img src="https://www.baokim.vn/cdn/x_developer/module/baokim_btn/paynow-l.png" alt="Thanh toán an toàn với Bảo Kim !" border="0"></a>
+
+                                            <br />
                                             <a class="btn btn-danger" href="@Url.Action("ConfirmCheckOut", "Cart")">Check Out</a>
                                         }
                                     }
                                     else
                                     {
-                                        <a class="add-cart item_add" href="@Url.Action("XemGioHang", "Cart")" onclick="return confirm('Sorry! The number of products you purchased exceeds the allowed number');">Online Pay</a>
+                                        <a class="add-cart item_add" href="@Url.Action("XemGioHang", "Cart")" onclick="return confirm('Sorry! The number of products you purchased exceeds the allowed number');"><img src="https://www.baokim.vn/cdn/x_developer/module/baokim_btn/paynow-l.png" alt="Thanh toán an toàn với Bảo Kim !" border="0"></a>
+                                        <br />
                                         <a class="btn btn-danger" href="@Url.Action("XemGioHang", "Cart")" onclick="return confirm('Sorry! The number of products you purchased exceeds the allowed number');">Check Out</a>
                                     }
+                                    
                                     <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Continue shopping</a>
                                 }
                             </div>
