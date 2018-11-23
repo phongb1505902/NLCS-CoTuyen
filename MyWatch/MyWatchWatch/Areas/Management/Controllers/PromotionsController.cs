@@ -52,28 +52,31 @@ namespace MyWatchWatch.Areas.Management.Controllers
 
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Can not add DB");
+                ModelState.AddModelError("", "Can not add Promotions");
                 return View();
             }
             if (!String.IsNullOrEmpty(promotion.PromotionName))
             {
-               
-                    DateTime dt1 = DateTime.Parse(promotion.PromotionOpen.ToString());
-                    DateTime dt2 = DateTime.Parse(promotion.PromotionClose.ToString());
-                    if (dt1.Date > dt2.Date)
-                    {
-                        ModelState.AddModelError("", "End time must be greater than start time");
 
-                    }
-                    else
-                    {
-                        promotion.PromotionStatus = true;
-                        db.Promotions.Add(promotion);
-                        db.SaveChanges();
+                DateTime dt1 = DateTime.Parse(promotion.PromotionOpen.ToString());
+                DateTime dt2 = DateTime.Parse(promotion.PromotionClose.ToString());
+                DateTime dt3 = DateTime.Parse(DateTime.Now.ToString());
+                if (dt1.Date < dt3.Date)
+                {
+                    ModelState.AddModelError("", "Time Promotion Open > Date Time Now ");
 
-                    }
-               
-
+                }
+                else if (dt1.Date > dt2.Date)
+                {
+                    ModelState.AddModelError("", "End time must be greater than start time");
+                }
+                else
+                {
+                    promotion.PromotionStatus = true;
+                    db.Promotions.Add(promotion);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Promotions");
+                }
             }
             return View(promotion);
         }
